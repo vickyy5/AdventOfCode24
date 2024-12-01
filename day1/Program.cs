@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Reflection.Emit;
-
+﻿
 class Program {
 
     public static void Main (string[] args){
@@ -34,9 +31,15 @@ class Program {
         }
 
 
+        int s=0;
+
+        s = left.Zip(right)
+            .Sum(pair => int.Abs(pair.First-pair.Second));
+
         //Console.WriteLine(string.Join(" ",left));
         //Console.WriteLine(string.Join(" ",right));
         Console.WriteLine(sum);
+        Console.WriteLine(s);
 
     }
 
@@ -62,6 +65,11 @@ class Program {
             sum += x * times; 
         }
 
+
+        var s = left.Distinct()
+                    .Sum(x => x * right.Count(y => x==y));        
+
+        Console.WriteLine(s);
         Console.WriteLine(sum);
     }
 
